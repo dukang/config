@@ -24,3 +24,19 @@ spring:
     maxPoolPreparedStatementPerConnectionSize: 20
     useGlobalDataSourceStat: true
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+  # ============================= spring jpa 配置 ============================= #
+  jpa:
+    show_sql: true
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    # database-platform: cn.luutqf.springboot.dialect.JsonbPostgresDialect
+    hibernate:
+      ddl-auto: update  # none: 关闭hibernate的自动创建表结构的机制
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        hbm2ddl.auto: update
+        jdbc.lob.non_contextual_creation: true
+        format_sql: true
+        temp:
+          # 兼容SpringBoot2.X, 关闭 Hibernate尝试验证PostgreSQL的CLOB特性
+          use_jdbc_metadata_defaults: false
