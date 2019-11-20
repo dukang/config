@@ -1,9 +1,14 @@
 spring:
   datasource:
-    druid:
-      url: jdbc:mysql://localhost:3306/blog_db?useUnicode=true&characterEncoding=UTF-8&useSSL=false
-      username: root
-      password: root
-      stat-view-servlet:
-        login-username: admin
-        login-password: admin
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog_db?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+    stat-view-servlet:
+      login-username: admin
+      login-password: admin
+    jpa:
+      hibernate:
+        ddl-auto: update
+      show-sql: true
